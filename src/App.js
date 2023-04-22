@@ -1,9 +1,13 @@
 import { Alchemy, Network } from 'alchemy-sdk';
 import { useEffect, useState } from 'react';
+import { Route, Routes } from 'react-router-dom';
 
 import './App.css';
+
 import Header from './components/header';
-import BlockRow from './components/blockRow';
+import Form from './components/form';
+import LatestBlock from './components/latestBlock';
+import BlockDetails from './components/blockDetails';
 
 // Refer to the README doc for more information about using API
 // keys in client-side code. You should never do this in production
@@ -22,32 +26,27 @@ const settings = {
 const alchemy = new Alchemy(settings);
 
 function App() {
-  const [blockNumber, setBlockNumber] = useState();
+  const [latestBlock, setLatestBlock] = useState();
 
   useEffect(() => {
     async function getBlockNumber() {
-      setBlockNumber(await alchemy.core.getBlockNumber());
+      setLatestBlock(await alchemy.core.getBlockNumber());
     }
+
+    console.log(latestBlock);
 
     getBlockNumber();
   });
 
   return (
-      // <div className="App">Block Number: {blockNumber}</div>
-      <div>
+      <>
         <Header name = "Ethereum Block Explorer"/>
-        <div>
-          <h3>Latest Blocks minned on Ethereum</h3>
-          <BlockRow blockNum = {blockNumber}/>
-          <BlockRow blockNum = {blockNumber-1}/>
-          <BlockRow blockNum = {blockNumber-2}/>
-          <BlockRow blockNum = {blockNumber-3}/>
-          <BlockRow blockNum = {blockNumber-4}/>
-          <BlockRow blockNum = {blockNumber-5}/>
-          <BlockRow blockNum = {blockNumber-6}/>
-          <BlockRow blockNum = {blockNumber-7}/>
-        </div>
-      </div>
+        <Form/>
+        <Routes>
+          <Route path="/" element={<LatestBlock blockNum = {latestBlock}/>}/>
+          <Route path="/block-detail" element={<BlockDetails/>}/>
+        </Routes>
+      </>
       
     );
 }
