@@ -33,7 +33,7 @@ function Form (props){
         <div className='form'>
             <input className="search" placeholder="block num/transaction hash"  onInput={e => setInputValue(e.target.value)}/>
             <button className="btn" onClick={handleClick}>
-                <Link to = {true ? '/block-detail' : '/'} className="btn-txt">
+                <Link to = {inputValue ? '/block-detail' : '/'} className="btn-txt">
                     Search
                 </Link>
             </button>
