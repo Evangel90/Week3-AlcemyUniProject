@@ -1,0 +1,17 @@
+.block{
+    display: flex;
+    justify-content: center;
+}
+
+.lmb{
+    font-size: 3rem;
+}
+
+.bNum{
+    font-size: 2rem;
+    background-color: whitesmoke;
+    color: black;
+    padding-top: 1.5rem;
+    margin-left: 2rem;
+    font-weight: bolder;
+}

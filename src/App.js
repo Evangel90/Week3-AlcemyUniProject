@@ -27,6 +27,14 @@ const alchemy = new Alchemy(settings);
 
 function App() {
   const [latestBlock, setLatestBlock] = useState();
+  const [blkHash, setBlkHash] = useState();
+  const [tnxLent, setTnxLent] = useState();
+  const [tnxNonce, setTnxNonce] = useState();
+  const [tnxPHash, setTnxPHash] = useState();
+  const [tnxNum, setTnxNum] = useState();
+  const [tnxMiner, setTnxMiner] = useState();
+  const [tnxDiff, setTnxDiff] = useState();
+  
 
   useEffect(() => {
     async function getBlockNumber() {
@@ -39,12 +47,32 @@ function App() {
   });
 
   return (
+
+
       <>
         <Header name = "Ethereum Block Explorer"/>
-        <Form/>
+        <Form 
+          hash={setBlkHash}
+          tnxLent={setTnxLent}
+          nonce={setTnxNonce}
+          phash={setTnxPHash}
+          num={setTnxNum}
+          diff={setTnxDiff}
+          miner={setTnxMiner}
+        />
         <Routes>
           <Route path="/" element={<LatestBlock blockNum = {latestBlock}/>}/>
-          <Route path="/block-detail" element={<BlockDetails/>}/>
+          <Route path="/block-detail" element={<BlockDetails 
+                hash={blkHash}
+                tnxLent={tnxLent}
+                nonce={tnxNonce}
+                phash={tnxPHash}
+                num={tnxNum}
+                diff={tnxDiff}
+                miner={tnxMiner}
+              />
+            }
+          />
         </Routes>
       </>
       

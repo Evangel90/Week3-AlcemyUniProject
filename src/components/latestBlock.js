@@ -1,10 +1,11 @@
+import './style/latesBlock.css';
 
 function LatestBlock(props){
     return(
-        <>
-            <p>Latest Minned Block :</p>
-            <p>{props.blockNum}</p>
-        </>
+        <div className='block'>
+            <p className='lmb'>Latest Minned Block :</p>
+            <p className='bNum'>{props.blockNum}</p>
+        </div>
     )
 }
 

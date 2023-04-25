@@ -1,0 +1,30 @@
+.form{
+    display: flex;
+    justify-content: center;
+    padding: 2rem;
+    margin: 2rem;
+}
+
+.search{
+    height: 2rem;
+    width: 40rem;
+    border-top-left-radius: 40px;
+    border-bottom-left-radius: 40px;
+    padding: 1rem;
+    font-size: 1rem;
+}
+
+.btn{
+    font-size: medium;
+    /* border-radius: 40px; */
+    border-top-right-radius: 40px;
+    border-bottom-right-radius: 40px;
+    background-color: grey;
+}
+
+.btn-txt{
+    text-decoration: none;
+    color: white;
+    /* margin: 1rem; */
+    padding: 1rem;
+}
